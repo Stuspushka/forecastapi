@@ -19,7 +19,7 @@ REST API-сервис для получения текущей погоды и �
 
   - Python 3.11+
 
-  - Django 4.x
+  - Django 
 
   - Django REST Framework
 

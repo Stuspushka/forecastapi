@@ -114,3 +114,8 @@ POST /api/weather/forecast
       python manage.py migrate
       python manage.py runserver
 
+## 🧪 Swagger-документация
+
+После запуска сервера Swagger доступен по адресу:
+
+http://localhost:8000/swagger/

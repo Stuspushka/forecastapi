@@ -51,7 +51,7 @@ class CurrentWeatherView(APIView):
         try:
             service = WeatherAPIService()
             data = service.get_current_weather(city)
-            cache.set(cache_key, data, timeout=600)  # кешируем 10 минут
+            cache.set(cache_key, data, timeout=600)
             return Response(data)
         except ValueError as e:
             return Response({"error": str(e)}, status=404)
@@ -105,7 +105,7 @@ class ForecastWeatherView(APIView):
 
             service = WeatherAPIService()
             forecast_data = service.get_forecast(city, date_str)
-            cache.set(cache_key, forecast_data, timeout=600)  # кешируем 10 минут
+            cache.set(cache_key, forecast_data, timeout=600)
             return Response(forecast_data)
         except ValueError as e:
             return Response({"error": str(e)}, status=400)
@@ -133,7 +133,6 @@ class ForecastWeatherView(APIView):
                     "max_temperature": serializer.validated_data["max_temperature"]
                 }
             )
-            # Очистка кеша для этого города и даты
             cache_key = f"forecast_{city}_{date}"
             cache.delete(cache_key)
 
